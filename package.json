@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "ch5prep": "replace-in-files --string='type=\\\"module\\\"' --replacement='defer' dist/crcomliblite/index.html",
+    "ch5arc": "ch5-cli archive -p crcomliblite -d dist/crcomliblite/ -o dist/",
+    "ch5send": "ch5-cli deploy dist/crcomliblite.ch5z -H 172.18.1.58 -t touchscreen -p",
+    "ch5build": "npm run build && npm run ch5prep && npm run ch5arc"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +22,9 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@crestron/ch5-webxpanel": "^2.0.0",
+    "ch5-crcomlib-lite": "^2.0.1",
+    "eruda": "^2.5.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

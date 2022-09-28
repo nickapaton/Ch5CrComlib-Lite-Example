@@ -1,27 +1,22 @@
-# Crcomliblite
+# Welcome
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+Angular Demo project using the Ch5CrComlib-Lite.
 
-## Development server
+Created by Nick Paton at M3 Technology Group Inc.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Use of Crestron Hardware
 
-## Code scaffolding
+In order to run this project on a Crestron TS touchscreen the `ch5prep` script must be run after building the project. This replaces the `type=module` with `defer` in all script tags so that CORS is defeated. This is required because Crestron touchscreens read the project from the local file system instead of through aweb server.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+You will need to install the following package globally
 
-## Build
+`npm install --global replace-in-files-cli`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The steps are:
+- ng build
+- npm run ch5prep
+- npm run ch5arc
 
-## Running unit tests
+This will result in a .ch5z file in the dist folder that will run as a web xpanel or on a Crestron touch screen.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Mac Users: I have no been able to get the replace-in-files-cli to work on Mac OS, so you will need to modify the script tags in dist/crcomliblite/index.html manually
